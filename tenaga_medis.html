@@ -52,7 +52,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h4> Jumlah Penduduk </h4>
+                <h4> Jumlah Tenaga Kesehatan </h4>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -93,67 +93,56 @@
         integrity="sha512-HctQcT5hnI/elQck4950pvd50RuDnjCSGSoHI8CNyQIYVxsUoyJ+gSQIOrll4oM/Z7Kfi7WCLMIbJbiwYHFCpA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
+        <script>
         var options = {
-            series: [{
-                name: 'Jumlah Penduduk',
-                data: [98640, 79620, 69690, 45420, 61610, 73690, 99960, 59360, 63090, 82390]
-            }],
+            series: [
+                {
+            name: 'Dokter',
+            data: [9, 32, 8, 9, 161, 75, 13, 76, 17, 59]
+          }, 
+          {
+            name: 'Tenaga Keperawatan',
+            data: [41, 227, 45, 26, 611, 241, 31, 131, 38, 237]
+          },
+          {
+            name: 'Tenaga Kesehatan Masyarakat',
+            data: [8, 6, 4, 3, 19, 13, 5, 11, 6, 18]
+          },
+          {
+            name: 'Tenaga Kefarmasian',
+            data: [16, 10, 14, 12, 88, 38, 14, 32, 16, 29]
+          }
+        ],
             chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: { 
-                        position: 'top',
-                    },
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['Kawalu', 'Tamansari', 'Cibeureum', 'Purbaratu', 'Tawang', 'Cihideung', 'Mangkubumi', 'Indihiang', 'Bungursari', 'Cipedes'],
-                title: {
-                    text: 'Kecamatan'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return val + " Jiwa"
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val;
-                },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
-            },
-        };
-
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-
-    </script>
+            height: 350,
+            type: 'area'
+          },
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            curve: 'smooth'
+          },
+          xaxis: {
+            type: 'Kecamatan',
+            categories: ['Kawalu', 'Tamansari', 'Cibeureum', 'Purbaratu', 'Tawang', 'Cihideung', 'Mangkubumi', 'Indihiang', 'Bungursari', 'Cipedes'],
+        },
+          tooltip: {
+            x: {
+              format: 'dd/MM/yy HH:mm'
+            }
+        },
+            yaxis: {
+              title: {
+                text: 'Jumlah Tenaga Kesehatan'
+              },
+              min: 5,
+              max: 700 
+          },
+          };
+  
+          var chart = new ApexCharts(document.querySelector("#chart"), options);
+          chart.render();
+        </script>
 </body>
-
 </html>
